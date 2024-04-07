@@ -1,0 +1,155 @@
+extends ../layout
+block content
+    
+  h1 Update Teacher
+  form(action=`/teacher/update/${t.id}`, method='post')
+    input(type="hidden" name='id' value=t.id) 
+    div
+      label(for='id') ID:
+      br
+      input#id(type='text' name='teacherid' value=t.teacherID disabled)
+    div
+      label(for='name') Tên:
+      br
+      input#name(type='text' name='name' value=t.name)
+    div
+      label(for='sub') Dạy môn:
+      br
+      select#subject(name='subject')
+        option(value="") Select Subject
+        option(value='math' selected=t.subject==='math') Toán
+        option(value='english' selected=t.subject==='english') Anh văn
+        option(value='literature' selected=t.subject==='literature') Ngữ văn
+        option(value='science' selected=t.subject==='science') Khoa học
+        option(value='history' selected=t.subject==='history') Lịch sử
+    div.grade
+      label(for='grade') Dạy Khối:
+      br
+      - function isChecked(t, gradeID) {
+        - for (const key in t) {
+          - if (t[key] === gradeID) {
+            - return true;
+          - }
+        - }
+        - return false;
+      - }
+      - let i = 1
+      each g in grades
+        label(for=`grade${i}`)
+          input(type="checkbox", id=`grade${i}`, name=`grade${i}`, value=g.gradeID, checked=isChecked(t, g.gradeID) ? true : false)
+          | Lớp #{g.name}
+        //- Input fields for khoi1 to khoi8
+        - let gradekey = 'grade'+i;
+        input(type="hidden", id=`khoi${i}`, name=`khoi${i}`)
+        - i++
+      input#sokhoi(type="hidden", value=`${i-1}`, name='sokhoi')
+    div
+      label(for='place') Dạy cơ sở:
+      br
+      - let checkplace ={};
+      - for(let i=1;i<=10;i++){
+        - let placekey = 'place' +i;
+        - if(t[placekey] !== ''){
+          - checkplace[i] = true;
+        - } else {
+          - checkplace[i] = false;
+        - }
+      - }
+      //- - for (let i = 1; i <= 5; i++)
+      input(type="checkbox" id=`place1` name=`place1` checked=checkplace[1] value=`Bình Thạnh` onchange=`updateCheck(1)`)
+      | Bình Thạnh
+      input(type="checkbox" id=`place2` name=`place2` checked=checkplace[2] value=`Phổ Quang` onchange=`updateCheck(2)`)
+      | Phổ Quang
+      input(type="checkbox" id=`place3` name=`place3` checked=checkplace[3] value=`Quận 7` onchange=`updateCheck(3)`)
+      | Quận 7
+      input(type="checkbox" id=`place4` name=`place4` checked=checkplace[4] value=`Thủ Đức` onchange=`updateCheck(4)`)
+      | Thủ Đức
+      input(type="checkbox" id=`place5` name=`place5` checked=checkplace[5] value=`place5` onchange=`updateCheck(5)`)
+      | CS 5
+      br
+      - for (let i = 6; i <= 10; i++)
+        input(type="checkbox" id=`place${i}` name=`place${i}` checked=checkplace[i] value=`place${i}` onchange=`updateCheck(${i})`)
+        | CS #{i}
+      script.
+        function updateCheck(index) {
+          checkplace[index] = !checkplace[index];
+        }
+    div
+      label(for='time') Thời gian:
+      br
+      - let checktime = {};
+      - for(let i = 1; i <= 13; i++) {
+      -   let timekey = 'time' + i;
+      -   if(t[timekey] === timekey) {
+      -     checktime[i] = true;
+      -   } else {
+      -     checktime[i] = false;
+      -   }
+      - }
+      table
+        tr
+          td
+            input#time-1(type='checkbox' name='time-1' value='Thứ 2' checked=checktime[1])
+            | Thứ 2
+          td
+            input#time-2(type='checkbox' name='time-2' value='Thứ 3' checked=checktime[2])
+            | Thứ 3
+          td
+            input#time-3(type='checkbox' name='time-3' value='Thứ 4' checked=checktime[3])
+            | Thứ 4
+          td
+            input#time-4(type='checkbox' name='time-4' value='Thứ 5' checked=checktime[4])
+            | Thứ 5
+          td
+            input#time-5(type='checkbox' name='time-5' value='Thứ 6' checked=checktime[5])
+            | Thứ 6
+        tr
+          td
+            input#time-6(type='checkbox' name='time-6' value='Thứ 7 - 1' checked=checktime[6])
+            | Thứ 7 - 1
+          td
+            input#time-7(type='checkbox' name='time-7' value='Thứ 7 - 2' checked=checktime[7])
+            | Thứ 7 - 2
+          td
+            input#time-8(type='checkbox' name='time-8' value='Thứ 7 - 3' checked=checktime[8])
+            | Thứ 7 - 3
+          td
+            input#time-9(type='checkbox' name='time-9' value='Thứ 7 - 4' checked=checktime[9])
+            | Thứ 7 - 4
+        tr
+          td
+            input#time-10(type='checkbox' name='time-10' value='Chủ Nhật - 1' checked=checktime[10])
+            | Chủ Nhật - 1
+          td
+            input#time-11(type='checkbox' name='time-11' value='Chủ Nhật - 2' checked=checktime[11])
+            | Chủ Nhật - 2
+          td
+            input#time-12(type='checkbox' name='time-12' value='Chủ Nhật - 3' checked=checktime[12])
+            | Chủ Nhật - 3
+          td
+            input#time-13(type='checkbox' name='time-13' value='Chủ Nhật - 4' checked=checktime[13])
+            | Chủ Nhật - 4
+    div
+      h4 Click vào đây để set thông tin nhé !!!
+      button#dktime Đăng ký time free
+      span#statusDkTime
+    div
+      label(for='timemin') Thời gian dạy:
+      br
+      input#timemin(type='number' name='min' placeholder='Min')
+      br
+      input#timemax(type='number' name='max' placeholder='Max')
+    div.dkbuoifree
+      - for (let i = 1; i <= 157; i++)
+        input(type="hidden" id=`buoi${i}` name=`buoi${i}`)
+    div.dkcosoday
+      - for (let i = 1; i <= 10; i++)
+        input(type="hidden" id=`coso${i}` name=`coso${i}`)
+    div.dktimefree
+      - for (let i = 1; i <= 13; i++)
+        input(type="hidden" id=`time${i}` name=`time${i}`)
+    div
+      input(type="submit", value='Cập Nhật Giáo Viên')
+  script(src='/javascripts/teacher-update.js')
+  
+  

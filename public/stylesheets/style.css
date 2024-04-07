@@ -1,0 +1,49 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+a {
+  color: #00B7FF;
+}
+nav.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+ul.navbar-nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around; /* Dàn đều các mục theo chiều ngang */
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+.nav-link:hover {
+  color: #ddd;
+}
+th,td,table{
+  border: solid;
+  border-collapse: collapse;
+}
+tbody > td{
+  width:200px
+}
+#timemin,#timemax{
+  width: 100px;
+}
+table{
+  width: 80%;
+  margin: auto;
+}
+td{
+  text-align: center;
+  vertical-align: middle;
+}

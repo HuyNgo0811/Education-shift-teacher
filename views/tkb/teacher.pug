@@ -1,0 +1,28 @@
+extends ../layout
+block content
+  h1 TKB giáo viên xem ở đây nè
+
+  div#teacherselect 
+    select#idinput 
+      option Select Teacher
+      each t in teachers 
+        option(value=t.teacherID)= t.name 
+  table
+    thead 
+      tr 
+        th Buổi 
+        th Tuần 
+        th Thứ
+        th Lớp 
+    tbody 
+      - for(let i=1;i<157;i++)
+        tr(id=`row${i}`) 
+          td(id=`buoi${i}`) Buổi #{i} 
+          td 
+            div(id=`week${i}`)
+          td 
+            div(id=`date${i}`)
+          td 
+            div(id=`class${i}`)
+          
+  script(src='/javascripts/tkb-teacher.js') 

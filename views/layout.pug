@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.navbar
+      ul.navbar-nav
+        li#teacher.nav-item
+          a.nav-link(href="/teacher") Teacher
+        li#class.nav-item
+          a.nav-link(href="/class") Class
+        li#grade.nav-item
+          a.nav-link(href="/grade") Grade
+        li#tkbday.nav-item
+          a.nav-link(href="/") TKB Tổng
+        li#tkbteacher.nav-item
+          a.nav-link(href="/tkb/teacher") TKB Giáo viên
+        li#tkbclass.nav-item
+          a.nav-link(href="/tkb/class") TKB Lớp
+    block content

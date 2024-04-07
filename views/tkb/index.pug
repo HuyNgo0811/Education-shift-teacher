@@ -1,0 +1,19 @@
+extends ../layout
+block content
+  h1 
+    a(href="/tkb/create") Tạo Thời khóa biểu (để chơi cho dui)
+  h1 Danh sách khung giờ
+  table 
+    thead
+      th TKB ID
+      th Buổi 1
+      th Buổi 2
+      th Thao tác 
+    tbody 
+      each g in tkbs
+        tr 
+          td= g.tkbID 
+          td= g.day1 
+          td= g.day2 
+          td
+            a(href=`/tkb/delete/${g._id}`) Xóa    

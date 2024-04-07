@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1 TKB tổng xem ở đây nè
+  table#myTable.display
+    thead 
+      tr 
+        th Buổi 
+        th Tuần 
+        th Thứ
+        th Lớp 
+        th Cơ sở 
+        th Giáo viên 
+        th Note cho lớp
+    tbody 
+      - for(let i=1;i<157;i++)
+        tr 
+          td Buổi #{i} 
+          td 
+            div(id=`week${i}`)
+          td 
+            div(id=`date${i}`)
+          td 
+            div(id=`class${i}`)
+          td 
+            div(id=`place${i}`)
+          td 
+            div(id=`teacher${i}`)
+          td 
+            div(id=`note${i}`)
+          
+  script(src='/javascripts/tkb.js') 

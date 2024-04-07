@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  h1 TKB theo lớp xem ở đây nè
+
+  div#classselect 
+    select#idinput 
+      option Select Class
+      each c in classes 
+        option(value=c.classID)= c.name 
+  table
+    thead 
+      tr 
+        th STT
+        th Buổi 
+        th Tuần 
+        th Thứ
+        th Cơ sở
+        th Môn
+        th Giáo viên 
+    tbody 
+      - for(let i=1;i<157;i++)
+        tr(id=`row${i}`) 
+          td 
+            h4(id=`stt${i}`)
+          td Buổi #{i} 
+          td 
+            div(id=`week${i}`)
+          td 
+            div(id=`date${i}`)
+          td 
+            div(id=`place${i}`)
+          td 
+            div(id=`subject${i}`)
+          td 
+            div(id=`teacher${i}`)
+          
+  script(src='/javascripts/tkb-class.js') 

@@ -1,0 +1,129 @@
+extends ../layout 
+block content 
+  h1 Create Teacher 
+  form(action="/teacher/create", method='post')
+    div 
+      label(for='id') ID:
+      br
+      input#id(type='text' name='teacherid')
+    div 
+      label(for='name') Tên:
+      br
+      input#name(type='text' name='name')
+    div 
+      label(for='subject') Dạy môn:
+      br
+      select#subject(name='subject')
+        option(value="") Select Subject 
+        option(value='math') Toán
+        option(value='english') Anh văn
+        option(value='literature') Ngữ văn
+        option(value='science') Khoa học
+        option(value='history') Lịch sử
+    div.grade 
+      label(for='grade') Dạy Khối:
+      br
+      - let i = 1
+      each g in grades
+        label(for=`grade${i}`)
+          input(type="checkbox", id=`grade${i}`, name=`grade${i}`, value=g.gradeID)
+          | Lớp #{g.name}
+          br
+
+        //- Input fields for khoi1 to khoi8
+        input(type="hidden", id=`khoi${i}`, name=`khoi${i}`)
+        - i++
+      input#sokhoi(type="hidden", value=`${i-1}`, name='sokhoi')
+
+    div 
+      label(for='place') Dạy cơ sở:
+      br
+      input#place1(type='checkbox' name='place1' value='Bình Thạnh')
+      |  Bình Thạnh
+      input#place2(type='checkbox' name='place2' value='Phổ Quang')
+      |  Phổ Quang     
+      input#place3(type='checkbox' name='place3' value='Quận 7')
+      |  Quận 7    
+      input#place4(type='checkbox' name='place4' value='Thủ Đức')
+      |  Thủ Đức
+      input#place5(type='checkbox' name='place5' value='place5')
+      |  CS 5 
+      br
+      input#place6(type='checkbox' name='place6' value='place6')
+      |  CS 6
+      input#place7(type='checkbox' name='place7' value='place7')
+      |  CS 7
+      input#place8(type='checkbox' name='place8' value='place8')
+      |  CS 8
+      input#place9(type='checkbox' name='place9' value='place9')
+      |  CS 9
+      input#place10(type='checkbox' name='place10' value='place10')
+      |  CS 10
+    div 
+      label Thời gian:
+      br
+      table
+        tr
+          td
+            input#time-1(type='checkbox' name='time-1' value='Thứ 2')
+            |  Thứ 2
+          td
+            input#time-2(type='checkbox' name='time-2' value='Thứ 3')
+            |  Thứ 3
+          td
+            input#time-3(type='checkbox' name='time-3' value='Thứ 4')
+            |  Thứ 4
+          td
+            input#time-4(type='checkbox' name='time-4' value='Thứ 5')
+            |  Thứ 5
+          td
+            input#time-5(type='checkbox' name='time-5' value='Thứ 6')
+            |  Thứ 6
+        tr
+          td
+            input#time-6(type='checkbox' name='time-6' value='Thứ 7 - 1')
+            |  Thứ 7 - 1
+          td
+            input#time-7(type='checkbox' name='time-7' value='Thứ 7 - 2')
+            |  Thứ 7 - 2
+          td
+            input#time-8(type='checkbox' name='time-8' value='Thứ 7 - 3')
+            |  Thứ 7 - 3
+          td
+            input#time-9(type='checkbox' name='time-9' value='Thứ 7 - 4')
+            |  Thứ 7 - 4
+        tr
+          td
+            input#time-10(type='checkbox' name='time-10' value='Chủ Nhật - 1')
+            |  Chủ Nhật - 1
+          td
+            input#time-11(type='checkbox' name='time-11' value='Chủ Nhật - 2')
+            |  Chủ Nhật - 2
+          td
+            input#time-12(type='checkbox' name='time-12' value='Chủ Nhật - 3')
+            |  Chủ Nhật - 3
+          td
+            input#time-13(type='checkbox' name='time-13' value='Chủ Nhật - 4')
+            |  Chủ Nhật - 4
+    div 
+      h4 Click vào đây để set thông tin nhé !!!
+      button#dktime Đăng ký time free
+      span#statusDkTime
+    div
+      label(for='timemin') Thời gian dạy:
+      br
+      input#timemin(type='number' name='min' placeholder='Min')
+      br
+      input#timemax(type='number' name='max' placeholder='Max')
+    div.dkbuoifree 
+      - for (let i = 1; i <= 157; i++)
+        input(type="hidden" id=`buoi${i}` name=`buoi${i}`)
+    div.dkcosoday 
+      - for (let i = 1; i <= 10; i++)
+        input(type="hidden" id=`coso${i}` name=`coso${i}`)
+    div.dktimefree 
+      - for (let i = 1; i <= 13; i++)
+        input(type="hidden" id=`time${i}` name=`time${i}`)
+    div 
+      input(type="submit", value='Tạo Giáo Viên')
+  script(src='/javascripts/teacher.js')

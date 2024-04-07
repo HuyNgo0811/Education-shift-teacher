@@ -1,0 +1,30 @@
+extends ../layout 
+block content 
+  h1 Create New Grade 
+  form(action=`/grade/create`, method='post')
+    div 
+      label(for='gradeid') ID:
+      br
+      input#id(type='text' name='gradeID')
+    div 
+      label(for='name') Tên Khối:
+      br
+      input#name(type='text' name='name')
+    div 
+      label(for='math') Số buổi Toán:
+      br
+      input#math(type="text" name='math')
+    div 
+      label(for='english') Số buổi Anh Văn:
+      br
+      input#english(type="text" name='english')
+    div 
+      label(for='literature') Số buổi Ngữ Văn:
+      br
+      input#literature(type="text" name='literature')
+    div 
+      label(for='science') Số buổi Khoa Học:
+      br
+      input#science(type="text" name='science')
+    div 
+      input(type="submit", value='Tạo Khối mới')

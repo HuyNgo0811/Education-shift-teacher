@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.navbar
+      ul.navbar-nav
+        li#teacher.nav-item
+          a.nav-link(href="/teacher") Teacher
+        li#class.nav-item
+          a.nav-link(href="/class") Class
+        li#grade.nav-item
+          a.nav-link(href="/grade") Grade
+        li#tkbday.nav-item
+          a.nav-link(href="/") TKB Tổng
+        li#tkbteacher.nav-item
+          a.nav-link(href="/tkb/teacher") TKB Giáo viên
+        li#tkbclass.nav-item
+          a.nav-link(href="/tkb/class") TKB Lớp
+    h1 TKB tổng xem ở đây nè
+    table#myTable.display
+      thead 
+        tr 
+          th Buổi 
+          th Tuần 
+          th Thứ
+          th Lớp 
+          th Cơ sở 
+          th Giáo viên 
+          th Note cho lớp
+      tbody 
+        - for(let i=1;i<157;i++)
+          tr 
+            td Buổi #{i} 
+            td 
+              div(id=`week${i}`)
+            td 
+              div(id=`date${i}`)
+            td 
+              div(id=`class${i}`)
+            td 
+              div(id=`place${i}`)
+            td 
+              div(id=`teacher${i}`)
+            td 
+              div(id=`note${i}`)
+            
+    script(src='/javascripts/tkb.js') 

@@ -1,0 +1,27 @@
+extends ../layout
+block content
+  h1 
+    a(href="/class/create") Tạo Lớp
+  h1 Danh sách Lớp
+  table 
+    thead
+      th Class ID
+      th Tên
+      th Khối
+      th Cơ Sở
+      th(colspan=2) Khung giờ
+      th Thao tác 
+    tbody 
+      each c in classes
+        tr 
+          td= c.classID 
+          td= c.name 
+          td= c.grade 
+          td= c.place 
+          td= c.time1
+          td= c.time2 
+          td
+            a(href=`/class/update/${c._id}`) Cập Nhật 
+            br
+            input(type="hidden" value=c.classID name='classID' id='classID')
+            a(href=`/class/delete/${c._id}` onclick='return confirm("Are you sure?")') Xóa    

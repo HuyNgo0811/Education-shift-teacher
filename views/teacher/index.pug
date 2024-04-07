@@ -1,0 +1,110 @@
+extends ../layout
+block content
+  h1 
+    a(href="/teacher/create") Tạo Giáo Viên
+  h1 Danh sách Giáo viên
+  table 
+    thead
+      th Teacher ID
+      th Tên
+      th Môn
+      th Khối
+      th Cơ Sở
+      th Khung giờ
+      th Thời gian
+      th Thao tác 
+    tbody 
+      each t in teachers
+        tr 
+          td= t.teacherID 
+          td= t.name 
+          td= t.subject 
+          td
+            - function isChecked(t, gradeID) {
+              - for (const key in t) {
+                -  if (t[key] === gradeID) {
+                  -  return true;
+                -  }
+              -  }
+              -  return false;
+            - }
+            - let i = 1
+            each g in grades
+              br
+              label(for=`grade${i}`)
+                input(type="checkbox", name=`grade${i++}`, value=g.gradeID, disabled, checked=isChecked(t, g.gradeID) ? true : false)
+                | Lớp #{g.name}
+          td 
+            - let checkplace ={};
+            - for(let i=1;i<=10;i++){
+              - let placekey = 'place' +i;
+              - if(t[placekey] !== ''){
+                - checkplace[i] = true;
+              - } else {
+                - checkplace[i] = false;
+              - }
+            - }
+            //- - for (let i = 1; i <= 5; i++)
+            input(type="checkbox" id=`place1` name=`place1` checked=checkplace[1] value=`Bình Thạnh` onchange=`updateCheck(1)` disabled)
+            | Bình Thạnh
+            input(type="checkbox" id=`place2` name=`place2` checked=checkplace[2] value=`Phổ Quang` onchange=`updateCheck(2)` disabled)
+            | Phổ Quang
+            input(type="checkbox" id=`place3` name=`place3` checked=checkplace[3] value=`Quận 7` onchange=`updateCheck(3)` disabled)
+            | Quận 7
+            input(type="checkbox" id=`place4` name=`place4` checked=checkplace[4] value=`Thủ Đức` onchange=`updateCheck(4)` disabled)
+            | Thủ Đức
+            input(type="checkbox" id=`place5` name=`place5` checked=checkplace[5] value=`place5` onchange=`updateCheck(5)` disabled)
+            | CS 5
+            br
+            - for (let i = 6; i <= 10; i++)
+              input(type="checkbox" id=`place${i}` name=`place${i}` checked=checkplace[i], disabled)
+              | CS #{i}
+          td 
+            - let checktime ={};
+            - for(let i=1;i<=13;i++){
+              - let timekey = 'time' +i;
+              - if(t[timekey] === timekey){
+                - checktime[i] = true;
+              - } else {
+                - checktime[i] = false;
+              - }
+            - } 
+            input(type="checkbox" id=`time1` name=`time1` checked=checktime[1], disabled)
+            | Thứ 2
+            input(type="checkbox" id=`time2` name=`time2` checked=checktime[2], disabled)
+            | Thứ 3
+            input(type="checkbox" id=`time3` name=`time3` checked=checktime[3], disabled)
+            | Thứ 4
+            input(type="checkbox" id=`time4` name=`time4` checked=checktime[4], disabled)
+            | Thứ 5
+            input(type="checkbox" id=`time5` name=`time5` checked=checktime[5], disabled)
+            | Thứ 6
+            br
+            input(type="checkbox" id=`time6` name=`time6` checked=checktime[6], disabled)
+            | Thứ 7 - 1
+            input(type="checkbox" id=`time7` name=`time7` checked=checktime[7], disabled)
+            | Thứ 7 - 2
+            input(type="checkbox" id=`time8` name=`time8` checked=checktime[8], disabled)
+            | Thứ 7 - 3
+            input(type="checkbox" id=`time9` name=`time9` checked=checktime[9], disabled)
+            | Thứ 7 - 4
+            br
+            input(type="checkbox" id=`time10` name=`time10` checked=checktime[10], disabled)
+            | Chủ nhật - 1
+            input(type="checkbox" id=`time11` name=`time11` checked=checktime[11], disabled)
+            | Chủ nhật - 2
+            br
+            input(type="checkbox" id=`time12` name=`time12` checked=checktime[12], disabled)
+            | Chủ nhật - 3
+            input(type="checkbox" id=`time13` name=`time13` checked=checktime[13], disabled)
+            | Chủ nhật - 4
+          td 
+            input#timemin(type='number' disabled name='min' placeholder='Min' value=t.timemin)
+            br
+            input#timemax(type='number' disabled name='max' placeholder='Max' value=t.timemax)
+          td
+            a(href=`/teacher/update/${t._id}`) Cập Nhật 
+            br
+            a(href=`/teacher/delete/${t._id}`) Xóa 
+  script(src='/javascripts/teacher.js')
+
