@@ -12,7 +12,9 @@ var gradeRouter = require('./routes/grade');
 var tkbRouter = require('./routes/tkb')
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/teachershift');
+// mongoose.connect('mongodb://127.0.0.1:27017/teachershift');
+mongoose.connect('mongodb+srv://huynqfx20307:MmfnmVJZW4eb1Pdd@huyeducation.r4bgrx9.mongodb.net/teacherShift?retryWrites=true&w=majority&appName=validate');
+// mongoose.connect('mongodb+srv://cuong979899:yCHjpvBZCCrCOUE0@validate.bbwogpc.mongodb.net/validate?retryWrites=true&w=majority&appName=validate');
 
 var app = express();
 

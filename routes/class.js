@@ -177,13 +177,13 @@ router.post('/update/:id', async (req,res) => {
 })
 
 router.get('/delete/:id', async (req,res) => {
-  // let classID = req.body.classID;
+  let classID = req.body.classID;
   // await teacherModel.findOneAndReplace()
   await classModel.findByIdAndDelete(req.params.id)
   for(let i=1; i<157; i++){
     let buoi = 'buoi'+i;
-    await teacherModel.findOneAndUpdate(
-      { [buoi]: classID },
+    await teacherModel.findOneAndReplace(
+      { buoi: classID },
       { $set: {[buoi]:'free'} },
       { new: true }
     )
