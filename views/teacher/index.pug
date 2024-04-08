@@ -63,7 +63,7 @@ block content
             - let checktime ={};
             - for(let i=1;i<=13;i++){
               - let timekey = 'time' +i;
-              - if(t[timekey] === timekey){
+              - if(t[timekey] !== ''){
                 - checktime[i] = true;
               - } else {
                 - checktime[i] = false;
