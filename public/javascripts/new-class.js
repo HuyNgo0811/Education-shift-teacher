@@ -386,10 +386,10 @@ function createAutoTeacher(){
           if(subject.includes('Văn')){
             numlit++;
           }else 
-          if(subject.includes('Khoa học')){
+          if(subject.includes('KH')){
             numsci++;
           }else 
-          if(subject.includes('Lịch Sử')){
+          if(subject.includes('LS')){
             numhis++;
           }
         }
@@ -428,7 +428,7 @@ function createAutoTeacher(){
           for(let d=index;d<24;d++){
             let bgvx = 'bgv'+d;
             if(buoigv.hasOwnProperty(bgvx)){
-              buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Khoa học'));
+              buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('KH'));
               // console.log('Xóa Khoa học')
             }
           }
@@ -438,7 +438,7 @@ function createAutoTeacher(){
           for(let d=index;d<24;d++){
             let bgvx = 'bgv'+d;
             if(buoigv.hasOwnProperty(bgvx)){
-              buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Lịch Sử'));
+              buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('LS'));
               // console.log('Xóa Lịch Sử')
             }
           }
