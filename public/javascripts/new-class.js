@@ -386,7 +386,8 @@ function createAutoTeacher(){
                 let bgvx = 'bgv'+d;
                 if(buoigv.hasOwnProperty(bgvx)){
                   buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Toán'));
-                  // console.log('Xóa Toán')
+                  console.log('Xóa Toán')
+                  console.log(nummath);
                 }
               }
               // console.log(buoigv);
