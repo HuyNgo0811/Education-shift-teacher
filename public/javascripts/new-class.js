@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function(){
     } 
     // Ẩn div#manualFields khi click vào div#addauto
     manualFields.style.display = "none";
-    autoteacher();
+    //autoteacher();
     createAutoTeacher();
     showteachereachday();
     //console.log(backupgv);
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
   
   findTeacher.addEventListener('click',function(){
     event.preventDefault();
-    // autoteacher();
+    autoteacher();
     statusfindteacher.innerText='Tìm được giáo viên rảnh gùi nhé!!!';
     console.log(buoigv);
   })
