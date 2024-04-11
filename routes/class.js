@@ -87,7 +87,7 @@ router.post('/create', async (req,res) => {
 
     // Tìm và cập nhật teacherModel dựa trên teacherID
     await teacherModel.findOneAndUpdate(
-      { name: teacherIDtkb },
+      { teacherID: teacherIDtkb },
       { $set: { [buoi]: body.classID } },
       { new: true }
     )
@@ -168,7 +168,7 @@ router.post('/update/:id', async (req,res) => {
 
     // Tìm và cập nhật teacherModel dựa trên teacherID
     await teacherModel.findOneAndUpdate(
-      { name: teacherIDtkb },
+      { teacherID: teacherIDtkb },
       { $set: { [buoi]: body.classID } },
       { new: true }
     )
