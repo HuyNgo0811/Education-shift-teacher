@@ -381,7 +381,7 @@ function createAutoTeacher(){
           document.getElementById(subday).value=subject;
           if(subject === 'Toán'){
             nummath++;
-            if(nummath == numofmath){
+            if(nummath === numofmath){
               for(let d=index;d<24;d++){
                 let bgvx = 'bgv'+d;
                 if(buoigv.hasOwnProperty(bgvx)){
@@ -395,7 +395,7 @@ function createAutoTeacher(){
           }
           if(subject === 'Anh'){
             numeng++;
-            if(numeng == numofenglish){
+            if(numeng === numofenglish){
               for(let d=index;d<24;d++){
                 let bgvx = 'bgv'+d;
                 if(buoigv.hasOwnProperty(bgvx)){
@@ -408,7 +408,7 @@ function createAutoTeacher(){
           }
           if(subject === 'Văn'){
             numlit++;
-            if(numlit == numofliterature){
+            if(numlit === numofliterature){
               for(let d=index;d<24;d++){
                 let bgvx = 'bgv'+d;
                 if(buoigv.hasOwnProperty(bgvx)){
@@ -421,7 +421,7 @@ function createAutoTeacher(){
           }
           if(subject === 'KH'){
             numsci++;
-            if(numsci == numofscience){
+            if(numsci === numofscience){
               for(let d=index;d<24;d++){
                 let bgvx = 'bgv'+d;
                 if(buoigv.hasOwnProperty(bgvx)){
@@ -434,7 +434,7 @@ function createAutoTeacher(){
           }
           if(subject === 'LS'){
             numhis++;
-            if(numhis == numofhistory){
+            if(numhis === numofhistory){
               for(let d=index;d<24;d++){
                 let bgvx = 'bgv'+d;
                 if(buoigv.hasOwnProperty(bgvx)){
