@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     signplacetkb();
     signbuoitkb();
     statusdktime.innerText='Đã set thông tin cho giáo viên';
+    document.getElementById(submit).disabled=false;
   });
 });
 
