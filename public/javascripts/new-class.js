@@ -381,71 +381,121 @@ function createAutoTeacher(){
           document.getElementById(subday).value=subject;
           if(subject === 'Toán'){
             nummath++;
+            if(nummath == numofmath){
+              for(let d=index;d<24;d++){
+                let bgvx = 'bgv'+d;
+                if(buoigv.hasOwnProperty(bgvx)){
+                  buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Toán'));
+                  // console.log('Xóa Toán')
+                }
+              }
+              // console.log(buoigv);
+            }
           }
-          else if(subject === 'Anh'){
+          if(subject === 'Anh'){
             numeng++;
+            if(numeng == numofenglish){
+              for(let d=index;d<24;d++){
+                let bgvx = 'bgv'+d;
+                if(buoigv.hasOwnProperty(bgvx)){
+                  buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Anh'));
+                  // console.log('Xóa Anh')
+                }
+              }
+              // console.log(buoigv);
+            }
           }
-          else if(subject === 'Văn'){
+          if(subject === 'Văn'){
             numlit++;
+            if(numlit == numofliterature){
+              for(let d=index;d<24;d++){
+                let bgvx = 'bgv'+d;
+                if(buoigv.hasOwnProperty(bgvx)){
+                  buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Văn'));
+                  // console.log('Xóa Văn')
+                }
+              }
+              // console.log(buoigv);
+            }
           }
-          else if(subject === 'KH'){
+          if(subject === 'KH'){
             numsci++;
+            if(numsci == numofscience){
+              for(let d=index;d<24;d++){
+                let bgvx = 'bgv'+d;
+                if(buoigv.hasOwnProperty(bgvx)){
+                  buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('KH'));
+                  // console.log('Xóa Khoa học')
+                }
+              }
+              // console.log(buoigv);
+            }
           }
-          else if(subject === 'LS'){
+          if(subject === 'LS'){
             numhis++;
+            if(numhis == numofhistory){
+              for(let d=index;d<24;d++){
+                let bgvx = 'bgv'+d;
+                if(buoigv.hasOwnProperty(bgvx)){
+                  buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('LS'));
+                  // console.log('Xóa Lịch Sử')
+                }
+              }
+              // console.log(buoigv);
+            }
           }
         }
         //các hàm xóa khi đủ số môn
-        if(nummath == numofmath){
-          for(let d=index;d<24;d++){
-            let bgvx = 'bgv'+d;
-            if(buoigv.hasOwnProperty(bgvx)){
-              buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Toán'));
-              // console.log('Xóa Toán')
-            }
-          }
-          // console.log(buoigv);
-        }
-        if(numeng == numofenglish){
-          for(let d=index;d<24;d++){
-            let bgvx = 'bgv'+d;
-            if(buoigv.hasOwnProperty(bgvx)){
-              buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Anh'));
-              // console.log('Xóa Anh')
-            }
-          }
-          // console.log(buoigv);
-        }
-        if(numlit == numofliterature){
-          for(let d=index;d<24;d++){
-            let bgvx = 'bgv'+d;
-            if(buoigv.hasOwnProperty(bgvx)){
-              buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Văn'));
-              // console.log('Xóa Văn')
-            }
-          }
-          // console.log(buoigv);
-        }
-        if(numsci == numofscience){
-          for(let d=index;d<24;d++){
-            let bgvx = 'bgv'+d;
-            if(buoigv.hasOwnProperty(bgvx)){
-              buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('KH'));
-              // console.log('Xóa Khoa học')
-            }
-          }
-          // console.log(buoigv);
-        }
-        if(numhis == numofhistory){
-          for(let d=index;d<24;d++){
-            let bgvx = 'bgv'+d;
-            if(buoigv.hasOwnProperty(bgvx)){
-              buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('LS'));
-              // console.log('Xóa Lịch Sử')
-            }
-          }
-          // console.log(buoigv);
-        }
+        // if(nummath == numofmath){
+        //   for(let d=index;d<24;d++){
+        //     let bgvx = 'bgv'+d;
+        //     if(buoigv.hasOwnProperty(bgvx)){
+        //       buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Toán'));
+        //       // console.log('Xóa Toán')
+        //     }
+        //   }
+        //   // console.log(buoigv);
+        // }
+        // if(numeng == numofenglish){
+        //   for(let d=index;d<24;d++){
+        //     let bgvx = 'bgv'+d;
+        //     if(buoigv.hasOwnProperty(bgvx)){
+        //       buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Anh'));
+        //       // console.log('Xóa Anh')
+        //     }
+        //   }
+        //   // console.log(buoigv);
+        // }
+        // if(numlit == numofliterature){
+        //   for(let d=index;d<24;d++){
+        //     let bgvx = 'bgv'+d;
+        //     if(buoigv.hasOwnProperty(bgvx)){
+        //       buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('Văn'));
+        //       // console.log('Xóa Văn')
+        //     }
+        //   }
+        //   // console.log(buoigv);
+        // }
+        // if(numsci == numofscience){
+        //   for(let d=index;d<24;d++){
+        //     let bgvx = 'bgv'+d;
+        //     if(buoigv.hasOwnProperty(bgvx)){
+        //       buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('KH'));
+        //       // console.log('Xóa Khoa học')
+        //     }
+        //   }
+        //   // console.log(buoigv);
+        // }
+        // if(numhis == numofhistory){
+        //   for(let d=index;d<24;d++){
+        //     let bgvx = 'bgv'+d;
+        //     if(buoigv.hasOwnProperty(bgvx)){
+        //       buoigv[bgvx] = buoigv[bgvx].filter(item => !item.includes('LS'));
+        //       // console.log('Xóa Lịch Sử')
+        //     }
+        //   }
+        //   // console.log(buoigv);
+        // }
       }   
     } 
   }
