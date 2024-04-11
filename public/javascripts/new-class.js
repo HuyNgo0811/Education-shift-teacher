@@ -319,7 +319,9 @@ function autoteacher() {
                 buoigv.bgv23.push(t.teacherID);
                 backupgv.bgv23.push(t.teacherID);
               }
-              // console.log(buoigv); 
+              console.log(buoigv); 
+              console.log("backup");
+              console.log(backupgv);
               // backupgv = buoigv;
               if(foundTeacher){break;};
             }
