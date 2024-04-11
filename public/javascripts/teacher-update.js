@@ -1,6 +1,6 @@
 let statusdktime = document.getElementById('statusDkTime');
 const signtime = document.getElementById('dktime');
-
+const subbtn = document.getElementById('submit');
 
 document.addEventListener('DOMContentLoaded', () => {
   signtimetkb();
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     signplacetkb();
     signbuoitkb();
     statusdktime.innerText='Đã set thông tin cho giáo viên';
-    document.getElementById(submit).disabled=false;
+    subbtn.disabled=false;
   });
 });
 
