@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
   
   findTeacher.addEventListener('click',function(){
     event.preventDefault();
-    autoteacher();
+    // autoteacher();
     statusfindteacher.innerText='Tìm được giáo viên rảnh gùi nhé!!!';
     console.log(buoigv);
   })
