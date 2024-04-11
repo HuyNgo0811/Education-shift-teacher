@@ -228,96 +228,96 @@ function autoteacher() {
             let buoivalue = document.getElementById(buoi).value;
             if(t[gradekey] === selectGrade && t[placekey] === selectedPlace && buoivalue !== '' && t[buoi] === 'free'){
               if(buoivalue === 'day1'){
-                buoigv.bgv1.push(t.name);
-                backupgv.bgv1.push(t.name);
+                buoigv.bgv1.push(t.teacherID);
+                backupgv.bgv1.push(t.teacherID);
               }
               if(buoivalue === 'day2'){
-                buoigv.bgv2.push(t.name);
-                backupgv.bgv2.push(t.name);
+                buoigv.bgv2.push(t.teacherID);
+                backupgv.bgv2.push(t.teacherID);
               }
               if(buoivalue === 'day3'){
-                buoigv.bgv3.push(t.name);
-                backupgv.bgv3.push(t.name);
+                buoigv.bgv3.push(t.teacherID);
+                backupgv.bgv3.push(t.teacherID);
               }
               if(buoivalue === 'day4'){
-                buoigv.bgv4.push(t.name);
-                backupgv.bgv4.push(t.name);
+                buoigv.bgv4.push(t.teacherID);
+                backupgv.bgv4.push(t.teacherID);
               }
               if(buoivalue === 'day5'){
-                buoigv.bgv5.push(t.name);
-                backupgv.bgv5.push(t.name);
+                buoigv.bgv5.push(t.teacherID);
+                backupgv.bgv5.push(t.teacherID);
               }
               if(buoivalue === 'day6'){
-                buoigv.bgv6.push(t.name);
-                backupgv.bgv6.push(t.name);
+                buoigv.bgv6.push(t.teacherID);
+                backupgv.bgv6.push(t.teacherID);
               }
               if(buoivalue === 'day7'){
-                buoigv.bgv7.push(t.name);
-                backupgv.bgv7.push(t.name);
+                buoigv.bgv7.push(t.teacherID);
+                backupgv.bgv7.push(t.teacherID);
               }
               if(buoivalue === 'day8'){
-                buoigv.bgv8.push(t.name);
-                backupgv.bgv8.push(t.name);
+                buoigv.bgv8.push(t.teacherID);
+                backupgv.bgv8.push(t.teacherID);
               }
               if(buoivalue === 'day9'){
-                buoigv.bgv9.push(t.name);
-                backupgv.bgv9.push(t.name);
+                buoigv.bgv9.push(t.teacherID);
+                backupgv.bgv9.push(t.teacherID);
               }
               if(buoivalue === 'day10'){
-                buoigv.bgv10.push(t.name);
-                backupgv.bgv10.push(t.name);
+                buoigv.bgv10.push(t.teacherID);
+                backupgv.bgv10.push(t.teacherID);
               }
               if(buoivalue === 'day11'){
-                buoigv.bgv11.push(t.name);
-                backupgv.bgv11.push(t.name);
+                buoigv.bgv11.push(t.teacherID);
+                backupgv.bgv11.push(t.teacherID);
               }
               if(buoivalue === 'day12'){
-                buoigv.bgv12.push(t.name);
-                backupgv.bgv12.push(t.name);
+                buoigv.bgv12.push(t.teacherID);
+                backupgv.bgv12.push(t.teacherID);
               }
               if(buoivalue === 'day13'){
-                buoigv.bgv13.push(t.name);
-                backupgv.bgv13.push(t.name);
+                buoigv.bgv13.push(t.teacherID);
+                backupgv.bgv13.push(t.teacherID);
               }
               if(buoivalue === 'day14'){
-                buoigv.bgv14.push(t.name);
-                backupgv.bgv14.push(t.name);
+                buoigv.bgv14.push(t.teacherID);
+                backupgv.bgv14.push(t.teacherID);
               }
               if(buoivalue === 'day15'){
-                buoigv.bgv15.push(t.name);
-                backupgv.bgv15.push(t.name);
+                buoigv.bgv15.push(t.teacherID);
+                backupgv.bgv15.push(t.teacherID);
               }
               if(buoivalue === 'day16'){
-                buoigv.bgv16.push(t.name);
-                backupgv.bgv16.push(t.name);
+                buoigv.bgv16.push(t.teacherID);
+                backupgv.bgv16.push(t.teacherID);
               }
               if(buoivalue === 'day17'){
-                buoigv.bgv17.push(t.name);
-                backupgv.bgv17.push(t.name);
+                buoigv.bgv17.push(t.teacherID);
+                backupgv.bgv17.push(t.teacherID);
               }
               if(buoivalue === 'day18'){
-                buoigv.bgv18.push(t.name);
-                backupgv.bgv18.push(t.name);
+                buoigv.bgv18.push(t.teacherID);
+                backupgv.bgv18.push(t.teacherID);
               }
               if(buoivalue === 'day19'){
-                buoigv.bgv19.push(t.name);
-                backupgv.bgv19.push(t.name);
+                buoigv.bgv19.push(t.teacherID);
+                backupgv.bgv19.push(t.teacherID);
               }
               if(buoivalue === 'day20'){
-                buoigv.bgv20.push(t.name);
-                backupgv.bgv20.push(t.name);
+                buoigv.bgv20.push(t.teacherID);
+                backupgv.bgv20.push(t.teacherID);
               }
               if(buoivalue === 'day21'){
-                buoigv.bgv21.push(t.name);
-                backupgv.bgv21.push(t.name);
+                buoigv.bgv21.push(t.teacherID);
+                backupgv.bgv21.push(t.teacherID);
               }
               if(buoivalue === 'day22'){
-                buoigv.bgv22.push(t.name);
-                backupgv.bgv22.push(t.name);
+                buoigv.bgv22.push(t.teacherID);
+                backupgv.bgv22.push(t.teacherID);
               }
               if(buoivalue === 'day23'){
-                buoigv.bgv23.push(t.name);
-                backupgv.bgv23.push(t.name);
+                buoigv.bgv23.push(t.teacherID);
+                backupgv.bgv23.push(t.teacherID);
               }
               // console.log(buoigv); 
               // backupgv = buoigv;
