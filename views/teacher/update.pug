@@ -141,7 +141,7 @@ block content
       input#timemax(type='number' name='max' placeholder='Max')
     div.dkbuoifree
       - for (let i = 1; i <= 157; i++)
-        input(type="hidden" id=`buoi${i}` name=`buoi${i}`)
+        input(type="hidden" id=`buoi${i}` name=`buoi${i}` value=t[`buoi${i}`])
     div.dkcosoday
       - for (let i = 1; i <= 10; i++)
         input(type="hidden" id=`coso${i}` name=`coso${i}`)
