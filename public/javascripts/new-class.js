@@ -32,7 +32,9 @@
     bgv1: [], bgv2: [], bgv3: [], bgv4: [], bgv5: [], bgv6: [], bgv7: [], bgv8: [], bgv9: [], bgv10: [], bgv11: [], bgv12: [], bgv13: [], bgv14: [], bgv15: [], bgv16: [], bgv17: [], bgv18: [], bgv19: [], bgv20: [], bgv21: [], bgv22: [], bgv23: []
   };
   let manualgv = [];
-  let autoteachereachday = [];
+  let autoteachereachday = {
+    bgv1: [], bgv2: [], bgv3: [], bgv4: [], bgv5: [], bgv6: [], bgv7: [], bgv8: [], bgv9: [], bgv10: [], bgv11: [], bgv12: [], bgv13: [], bgv14: [], bgv15: [], bgv16: [], bgv17: [], bgv18: [], bgv19: [], bgv20: [], bgv21: [], bgv22: [], bgv23: []
+  };
 
   const strings = [];
   let shuffled = [];
@@ -377,7 +379,7 @@ function createAutoTeacher(){
         if(document.getElementById(buoi).value === day){
           console.log('gan gv vo buoi hoc ne')
           document.getElementById(buoihoc).value=firstteacher;
-          autoteachereachday.push(firstteacher);
+          autoteachereachday[bgv].push(firstteacher);
           document.getElementById(subday).value=subject;
           if(subject.includes('Toán')){
             nummath++;
@@ -455,7 +457,8 @@ function createAutoTeacher(){
 function showteachereachday() {
   for(let i = 0;i<23;i++){
     let idinput = 'teacherdaysetted'+ (i+1);
-    document.getElementById(idinput).value=autoteachereachday[i];
+    let bgv = 'bgv' +(i+1);
+    document.getElementById(idinput).value=autoteachereachday[bgv];
   }
   // Lặp qua từng cặp key-value trong đối tượng bgv
   for (let key in backupgv) {
