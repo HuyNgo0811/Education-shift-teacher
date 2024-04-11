@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function(){
     //autoteacher();
     createAutoTeacher();
     showteachereachday();
-    //console.log(backupgv);
+    console.log(buoigv);
   });
 
   settkb.addEventListener('click', function(){
