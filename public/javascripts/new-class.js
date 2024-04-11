@@ -694,8 +694,8 @@ function checkgvauto(autoteachereachday){
   var mostFrequentValues = {
     "Anh": null,
     "Văn": null,
-    "Khoa học": null,
-    "Lịch Sử": null,
+    "KH": null,
+    "LS": null,
     "Toán": null
   };
 
@@ -725,8 +725,8 @@ function checkgvauto(autoteachereachday){
   document.getElementById("mathteacherauto").value = mostFrequentValues["Toán"];
   document.getElementById("englishteacherauto").value = mostFrequentValues["Anh"];
   document.getElementById("literatureteacherauto").value = mostFrequentValues["Văn"];
-  document.getElementById("scienceteacherauto").value = mostFrequentValues["Khoa học"];
-  document.getElementById("historyteacherauto").value = mostFrequentValues["Lịch Sử"];
+  document.getElementById("scienceteacherauto").value = mostFrequentValues["KH"];
+  document.getElementById("historyteacherauto").value = mostFrequentValues["LS"];
 
 }
 
