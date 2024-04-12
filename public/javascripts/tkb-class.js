@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded",function () {
       classdata.forEach(c => {
         const idinput = document.getElementById('idinput').value; //classID
         for(let i=1;i<157;i++){
-          let buoi = 'buoihoc'+i;
+          let buoi = 'buoi'+i;
           let tea = 'teacher'+i;
           let teaout = document.querySelector('#'+tea);
           if(c.classID === idinput && c[buoi] !==''){
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded",function () {
       classdata.forEach(c => {
         const idinput = document.getElementById('idinput').value; //classID
         for(let i=1;i<157;i++){
-          let buoi = 'subday'+i;
+          let buoi = 'sub'+i;
           let tea = 'subject'+i;
           let teaout = document.querySelector('#'+tea);
           if(c.classID === idinput && c[buoi] !==''){

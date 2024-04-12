@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded",function () {
         if (!tenlop[classID]) {
           tenlop[classID] = {}; // Tạo một object mới nếu chưa tồn tại
         }
-        for (let i = 1; i <= 157; i++) {
+        for (let i = 1; i < 157; i++) {
           let ngayhoc = 'buoi' + i;
           if (c[ngayhoc] !== '') {
             if (!tenlop[classID][ngayhoc]) {
@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded",function () {
         if (!tengv[classID]) {
           tengv[classID] = {}; // Tạo một object mới nếu chưa tồn tại
         }
-        for (let i = 1; i <= 157; i++) {
-          let ngayhoc = 'buoihoc' + i;
+        for (let i = 1; i < 157; i++) {
+          let ngayhoc = 'buoi' + i;
           if (c[ngayhoc] !== '') {
             if (!tengv[classID][ngayhoc]) {
               tengv[classID][ngayhoc] = []; 
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded",function () {
           tencs[classID] = {}; // Tạo một object mới nếu chưa tồn tại
         }
 
-        for (let i = 1; i <= 157; i++) {
+        for (let i = 1; i < 157; i++) {
           let buoihoc = 'buoi' + i;
           if (c[buoihoc] !== '') {
             if (!tencs[classID][buoihoc]) {
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded",function () {
 
   }
   function showweek() { 
-    for(let i=1;i<=157;i++){
+    for(let i=1;i<157;i++){
       let id='week'+i;
       let weekin = document.getElementById(id);
       if(1<=i && i<14){
@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded",function () {
           tennote[classID] = {}; // Tạo một object mới nếu chưa tồn tại
         }
 
-        for (let i = 1; i <= 157; i++) {
+        for (let i = 1; i < 157; i++) {
           let buoihoc = 'buoi' + i;
           let notedate = 'note'+i;
           if (c[buoihoc] !== '') {

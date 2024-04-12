@@ -8,13 +8,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var teacherRouter = require('./routes/teacher');
 var classRouter = require('./routes/class');
-var gradeRouter = require('./routes/grade');
+// var gradeRouter = require('./routes/grade');
 var tkbRouter = require('./routes/tkb')
 
 const mongoose = require('mongoose');
-// mongoose.connect('mongodb://127.0.0.1:27017/teachershift');
-mongoose.connect('mongodb+srv://huynqfx20307:MmfnmVJZW4eb1Pdd@huyeducation.r4bgrx9.mongodb.net/teacherShift?retryWrites=true&w=majority&appName=validate');
-// mongoose.connect('mongodb+srv://cuong979899:yCHjpvBZCCrCOUE0@validate.bbwogpc.mongodb.net/validate?retryWrites=true&w=majority&appName=validate');
+// mongoose.connect('mongodb://127.0.0.1:27017/teachershift-new');
+mongoose.connect('mongodb+srv://huynqfx20307:MmfnmVJZW4eb1Pdd@huyeducation.r4bgrx9.mongodb.net/teacherShift-ver-2?retryWrites=true&w=majority&appName=validate');
 
 var app = express();
 
@@ -32,7 +31,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/teacher', teacherRouter);
 app.use('/class', classRouter);
-app.use('/grade', gradeRouter);
+// app.use('/grade', gradeRouter);
 app.use('/tkb',tkbRouter);
 
 // catch 404 and forward to error handler

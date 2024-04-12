@@ -1,0 +1,11 @@
+extends ../layout 
+block content 
+  h1 Delete Class 
+  form(action=`/class/delete/${c.id}`, method='post')
+    input(type="hidden" name='id' value=c.id)
+    input(type="text" name='classID' value=c.classID)
+    h1 Chắc chắn xóa chưa???
+    input(type="submit" value='Xóa nè')
+
+
+  

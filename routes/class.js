@@ -2,23 +2,18 @@ var express = require('express');
 var router = express.Router();
 const classModel = require('../model/classModel')
 const teacherModel = require('../model/teacherModel')
-const gradeModel = require('../model/gradeModel')
-const tkbModel = require('../model/tkbModel')
 
 /* GET home page. */
 router.get('/',async function(req, res, next) {
   let classes = await classModel.find()
   let teachers = await teacherModel.find()
-  let grades = await gradeModel.find()
-  res.render('class/index', { classes,teachers,grades });
+  res.render('class/index', { classes,teachers });
 });
 
 router.get('/create', async (req, res) => {
     let classes = await classModel.find();
     let teachers = await teacherModel.find();
-    let grades = await gradeModel.find();
-    let tkbs = await tkbModel.find();
-    res.render('class/create', { classes, teachers, grades, tkbs });
+    res.render('class/create', { classes, teachers });
 });
 
 // Route để lấy dữ liệu JSON
@@ -50,24 +45,17 @@ router.post('/create', async (req,res) => {
     note:body.note
   }
   // Lặp qua từ 1 đến 23 để gán giá trị cho subject1 đến subject23
-  for (let i = 1; i <= 23; i++) {
-    let subjectKey = 'subject' + i;
-    clssData[subjectKey] = body[subjectKey];
-  }
-  for (let i = 1; i <= 23; i++) {
-    let dayKey = 'day' + i;
-    clssData[dayKey] = body[dayKey];
-  }
-  for (let i = 1; i <= 157; i++) {
+  
+  for (let i = 1; i < 157; i++) {
     let buoiKey = 'buoi' + i;
     clssData[buoiKey] = body[buoiKey];
   }
-  for (let i = 1; i <= 157; i++) {
+  for (let i = 1; i < 157; i++) {
     let buoihocKey = 'buoihoc' + i;
     clssData[buoihocKey] = body[buoihocKey];
   }
-  for (let i = 1; i <= 157; i++) {
-    let subdayKey = 'subday' + i;
+  for (let i = 1; i < 157; i++) {
+    let subdayKey = 'sub' + i;
     clssData[subdayKey] = body[subdayKey];
   }
   for (let i = 1; i < 157; i++) {
@@ -78,12 +66,11 @@ router.post('/create', async (req,res) => {
   let clss = new classModel(clssData);
   await clss.save()
 
-  for (let i = 1; i <= 157; i++) {
-    let buoihoc = 'buoihoc' + i;
+  for (let i = 1; i < 157; i++) {
     let buoi = 'buoi' + i;
 
     // Lấy giá trị của input có tên là buoihoc
-    let teacherIDtkb = req.body[buoihoc];
+    let teacherIDtkb = req.body[buoi];
 
     // Tìm và cập nhật teacherModel dựa trên teacherID
     await teacherModel.findOneAndUpdate(
@@ -103,9 +90,8 @@ router.get('/teacher', async (req, res) => {
 
 router.get('/update/:id',async (req,res) => {
   let classes = await classModel.findById(req.params.id)
-  let grades = await gradeModel.find()
   let t= await teacherModel.find()
-  res.render('class/update',{c : classes,grades,t})
+  res.render('class/update',{c : classes,t})
 })
 
 router.post('/update/:id', async (req,res) => {
@@ -131,24 +117,17 @@ router.post('/update/:id', async (req,res) => {
     note:body.note
   }
   // Lặp qua từ 1 đến 23 để gán giá trị cho subject1 đến subject23
-  for (let i = 1; i <= 23; i++) {
-    let subjectKey = 'subject' + i;
-    clssData[subjectKey] = body[subjectKey];
-  }
-  for (let i = 1; i <= 23; i++) {
-    let dayKey = 'day' + i;
-    clssData[dayKey] = body[dayKey];
-  }
-  for (let i = 1; i <= 157; i++) {
+
+  for (let i = 1; i < 157; i++) {
     let buoiKey = 'buoi' + i;
     clssData[buoiKey] = body[buoiKey];
   }
-  for (let i = 1; i <= 157; i++) {
+  for (let i = 1; i < 157; i++) {
     let buoihocKey = 'buoihoc' + i;
     clssData[buoihocKey] = body[buoihocKey];
   }
-  for (let i = 1; i <= 157; i++) {
-    let subdayKey = 'subday' + i;
+  for (let i = 1; i < 157; i++) {
+    let subdayKey = 'sub' + i;
     clssData[subdayKey] = body[subdayKey];
   }
   for (let i = 1; i < 157; i++) {
@@ -159,12 +138,16 @@ router.post('/update/:id', async (req,res) => {
   //let clss = new classModel(clssData);
   await classModel.findByIdAndUpdate(id,clssData);
 
+  let classID = req.body.classID;
   for (let i = 1; i <= 157; i++) {
-    let buoihoc = 'buoihoc' + i;
     let buoi = 'buoi' + i;
 
+    await teacherModel.updateMany(
+      { [buoi]: classID },
+      { $set: { [buoi]: 'free' } }
+    );
     // Lấy giá trị của input có tên là buoihoc
-    let teacherIDtkb = req.body[buoihoc];
+    let teacherIDtkb = req.body[buoi];
 
     // Tìm và cập nhật teacherModel dựa trên teacherID
     await teacherModel.findOneAndUpdate(
@@ -176,22 +159,25 @@ router.post('/update/:id', async (req,res) => {
   res.redirect('/class')
 })
 
-router.get('/delete/:id', async (req,res) => {
+router.get('/delete/:id',async (req,res) => {
+  let classes = await classModel.findById(req.params.id)
+  let t= await teacherModel.find()
+  res.render('class/delete',{c : classes,t})
+})
+
+router.post('/delete/:id', async (req,res) => {
   let classID = req.body.classID;
-  // await teacherModel.findOneAndReplace()
-  await classModel.findByIdAndDelete(req.params.id)
   for(let i=1; i<157; i++){
     let buoi = 'buoi'+i;
-    await teacherModel.findOneAndReplace(
-      { buoi: classID },
-      { $set: {[buoi]:'free'} },
-      { new: true }
-    )
+    await teacherModel.updateMany(
+      { [buoi]: classID },
+      { $set: { [buoi]: 'free' } }
+    );
   }
+  await classModel.findByIdAndDelete(req.params.id)
   let teachers = await teacherModel.find()
-  let grades = await gradeModel.find()
   let classes = await classModel.find()
-  res.render('class', {classes,grades,teachers})
+  res.render('class', {classes,teachers})
 })
 
 module.exports = router;

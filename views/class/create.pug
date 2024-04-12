@@ -99,32 +99,7 @@ block content
             label(for='history') Số buổi Lịch Sử:
             br
             input#history(type="number" name='history')
-          div.SubjectTungBuoi 
-            - for (let i = 1; i <= 23; i++)
-              input(type="hidden" id=`subject${i}` name=`subject${i}`)
-            input(type="hidden" id='subject24' name='subject24' value='MTO')
-          div.IDGiaoVienTungBuoi 
-            - for (let i = 1; i <= 23; i++)
-              input(type="hidden" id=`day${i}` name=`day${i}`)
-            input(type="hidden" id='day24' name='day24' value='MTO')
-          div.LichHocTKBTong 
-            - for (let i = 1; i <= 157; i++)
-              input.tkbbuoi(type="hidden" id=`buoi${i}` name=`buoi${i}`)
-              //- input(type="hidden" id=`subbuoi${i}` name=`subbuoi${i}`)
-          div.Note 
-            - for (let i = 1; i < 157; i++)
-              input(type="hidden" id=`note${i}` name=`note${i}`)
-          
-          
-          //- div#teacherAuto 
-          //-   input#mathteacherauto(type="hidden", name='mathteacherauto')
-          //-   input#englishteacherauto(type="hidden", name='englishteacherauto')
-          //-   input#literatureteacherauto(type="hidden", name='literatureteacherauto')
-          //-   input#scienceteacherauto(type="hidden", name='scienceteacherauto')
-          //-   input#historyteacherauto(type="hidden", name='historyteacherauto')
-          
-          
-        td 
+        td.button 
           div 
             h4 Bước 1:
             button#settkb Set lịch học
@@ -178,25 +153,70 @@ block content
               br
               |Giáo viên Lịch Sử: 
               input#historyteacherauto(type="text", disabled , name='historyteacherauto')
-            div.IDGiaoVienTKBTong 
-              - for (let i = 1; i <= 157; i++) 
-                input(type="hidden" id=`buoihoc${i}` name=`buoihoc${i}`)
-                input(type="hidden" id=`subday${i}` name=`subday${i}`)
           div
             h4 Bước 5:  
-              input(type="submit", value='Tạo lớp mới')
-        td#teachereachday(style="display: none;") 
+              input#submit(type="submit", value='Tạo lớp mới')
+          div#countautosubject(style="display: none;") 
+            h4 tổng số buổi các môn: 
+            div 
+              label(for='math') Số buổi Toán:
+              br
+              input#numofautomath(type="number" name='numofautomath' disabled)
+            div 
+              label(for='english') Số buổi Anh Văn:
+              br
+              input#numofautoenglish(type="number" name='numofautoenglish' disabled)
+            div 
+              label(for='literature') Số buổi Ngữ Văn:
+              br
+              input#numofautoliterature(type="number" name='numofautoliterature' disabled)
+            div 
+              label(for='science') Số buổi Khoa Học:
+              br
+              input#numofautoscience(type="number" name='numofautoscience' disabled)
+            div 
+              label(for='history') Số buổi Lịch Sử:
+              br
+              input#numofautohistory(type="number" name='numofautohistory' disabled)
+            div 
+              label(for='total') Số buổi Tổng cộng:
+              br
+              input#numofautototal(type="number" name='numofautototal' disabled)
+        td#teachereachdayauto(style="display: none;") 
           - for(let i=1;i<24;i++)
-            label(for=`teacherday${i}`) Buổi #{i}
+            label(for=`autoteacherday${i}`) Buổi #{i}
             br
-            input(type="text" disabled id=`teacherdaysetted${i}` style='width: 50%;')
-            select(id=`teacherday${i}` name=`teacherday` onchange=`setteacheragain(${i})`)  
+            input(type="text" disabled id=`autoteacherdaysetted${i}` style='width: 50%;')
+            select(id=`autoteacherday${i}` name=`autoteacherday` onchange=`setautoteacheragain(${i})`)  
             br
           div 
             h4 Bước 4(nếu có): 
             button#autoagain Gán lại giáo viên 
             span#statusAutoAgain
-
+        td#teachereachdaymanual(style="display: none;") 
+          - for(let i=1;i<24;i++)
+            label(for=`manualteacherday${i}`) Buổi #{i}
+            br
+            input(type="text" disabled id=`manualteacherdaysetted${i}` style='width: 50%;')
+            select(id=`manualteacherday${i}` name=`manualteacherday` onchange=`setmanualteacheragain(${i})`)  
+            br
+          div 
+            h4 Bước 4(nếu có): 
+            button#manualagain Gán lại giáo viên 
+            span#statusManualAgain
+        td.DevOnly(style="display: none;")
+          div.IDGiaoVienTKBTong 
+            - for (let i = 1; i < 157; i++)
+              input.tkbbuoi(type="hidden" id=`buoi${i}` name=`buoi${i}`)
+          div.Note-not-care 
+            - for (let i = 1; i < 157; i++)
+              input(type="hidden" id=`note${i}` name=`note${i}`)
+          div.LichhocTKBTong 
+            - for (let i = 1; i < 157; i++) 
+              input(type="hidden" id=`buoihoc${i}` name=`buoihoc${i}`)
+          div.MonhocTKBTong
+            - for (let i = 1; i < 157; i++)
+              input(type="hidden" id=`sub${i}` name=`sub${i}`)
 
 
   script(src='/javascripts/new-class.js')

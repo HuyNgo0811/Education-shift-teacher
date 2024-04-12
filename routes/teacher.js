@@ -1,18 +1,16 @@
 var express = require('express');
 var router = express.Router();
 const teacherModel = require('../model/teacherModel')
-const gradeModel = require('../model/gradeModel')
+
 
 /* GET home page. */
 router.get('/',async function(req, res, next) {
   let teachers = await teacherModel.find()
-  let grades = await gradeModel.find()
-  res.render('teacher/index', { teachers,grades });
+  res.render('teacher/index', { teachers });
 });
 
 router.get('/create',async (req,res) => {
-  let grades = await gradeModel.find()
-  res.render('teacher/create',{grades})
+  res.render('teacher/create')
 })
 
 router.post('/create', async (req,res) => {
@@ -30,7 +28,7 @@ router.post('/create', async (req,res) => {
     let placeValue = 'coso'+i;
     teacherData[placeKey] = body[placeValue];
   }
-  for(let i=1;i<158;i++){
+  for(let i=1;i<157;i++){
     let buoikey = 'buoi'+i;
     teacherData[buoikey] = body[buoikey];
   }
@@ -38,8 +36,7 @@ router.post('/create', async (req,res) => {
     let timekey = 'time'+i;
     teacherData[timekey] = body[timekey];
   }
-  let sokhoi = body.sokhoi;
-  for(let i=1;i<=sokhoi;i++){
+  for(let i=1;i<9;i++){
     let gradeKey = 'grade'+i;
     let gradeValue = 'khoi'+i;
     teacherData[gradeKey] = body[gradeValue];
@@ -51,8 +48,7 @@ router.post('/create', async (req,res) => {
 
 router.get('/update/:id',async (req,res) => {
   let teacher = await teacherModel.findById(req.params.id)
-  let grades = await gradeModel.find()
-  res.render('teacher/update',{t : teacher,grades})
+  res.render('teacher/update',{t : teacher })
 })
 
 
@@ -89,24 +85,17 @@ router.post('/update/:id', async (req, res) => {
   }
 
   // Cập nhật thông tin khối lớp
-  let sokhoi = body.sokhoi;
-  for(let i = 1; i <= sokhoi; i++) {
+  for(let i = 1; i <= 8; i++) {
     let gradeKey = 'grade' + i;
     let gradeValue = 'khoi' + i;
     teacherData[gradeKey] = body[gradeValue];
   }
+  
+  // Sử dụng findOneAndUpdate để update dữ liệu trong MongoDB
+  await teacherModel.findByIdAndUpdate(id,teacherData);
 
-  try {
-    // Sử dụng findOneAndUpdate để update dữ liệu trong MongoDB
-    await teacherModel.findByIdAndUpdate(id,teacherData);
-
-    // Redirect sau khi update thành công
-    res.redirect('/teacher');
-  } catch (error) {
-    // Xử lý lỗi nếu có
-    console.error(error);
-    res.status(500).send('Có lỗi xảy ra khi cập nhật thông tin giáo viên.');
-  }
+  // Redirect sau khi update thành công
+  res.redirect('/teacher');
 });
 
 
@@ -114,8 +103,7 @@ router.post('/update/:id', async (req, res) => {
 router.get('/delete/:id', async (req,res) => {
   await teacherModel.findByIdAndDelete(req.params.id)
   let teachers = await teacherModel.find()
-  let grades = await gradeModel.find()
-  res.render('teacher', {teachers,grades})
+  res.render('teacher', {teachers})
 })
 
 module.exports = router;

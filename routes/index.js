@@ -2,16 +2,12 @@ var express = require('express');
 var router = express.Router();
 const classModel = require('../model/classModel')
 const teacherModel = require('../model/teacherModel')
-const gradeModel = require('../model/gradeModel')
-const tkbModel = require('../model/tkbModel')
 
 /* GET home page. */
 router.get('/',async function(req, res, next) {
   let classes = await classModel.find()
   let teachers = await teacherModel.find()
-  let grades = await gradeModel.find()
-  let tkbs = await tkbModel.find()
-  res.render('index', { c:classes,teachers,grades,tkbs });
+  res.render('index', { c:classes,teachers });
 });
 
 router.post('/update/:id',async (req,res) => {

@@ -20,21 +20,26 @@ block content
         option(value='literature') Ngữ văn
         option(value='science') Khoa học
         option(value='history') Lịch sử
-    div.grade 
+    div 
       label(for='grade') Dạy Khối:
       br
-      - let i = 1
-      each g in grades
-        label(for=`grade${i}`)
-          input(type="checkbox", id=`grade${i}`, name=`grade${i}`, value=g.gradeID)
-          | Lớp #{g.name}
-          br
-
-        //- Input fields for khoi1 to khoi8
-        input(type="hidden", id=`khoi${i}`, name=`khoi${i}`)
-        - i++
-      input#sokhoi(type="hidden", value=`${i-1}`, name='sokhoi')
-
+      input#grade1(type='checkbox',name='grade1' value='1') 
+      | 1
+      input#grade2(type='checkbox',name='grade2' value='2') 
+      | 2
+      input#grade3(type='checkbox',name='grade3' value='3') 
+      | 3
+      input#grade4(type='checkbox',name='grade4' value='4A') 
+      | 4A
+      br
+      input#grade5(type='checkbox',name='grade5' value='4B') 
+      | 4B
+      input#grade6(type='checkbox',name='grade6' value='5A') 
+      | 5A
+      input#grade7(type='checkbox',name='grade7' value='5B') 
+      | 5B
+      input#grade8(type='checkbox',name='grade8' value='5T') 
+      | 5T
     div 
       label(for='place') Dạy cơ sở:
       br
@@ -116,7 +121,7 @@ block content
       br
       input#timemax(type='number' name='max' placeholder='Max')
     div.dkbuoifree 
-      - for (let i = 1; i <= 157; i++)
+      - for (let i = 1; i < 157; i++)
         input(type="hidden" id=`buoi${i}` name=`buoi${i}`)
     div.dkcosoday 
       - for (let i = 1; i <= 10; i++)
@@ -124,6 +129,9 @@ block content
     div.dktimefree 
       - for (let i = 1; i <= 13; i++)
         input(type="hidden" id=`time${i}` name=`time${i}`)
+    div.dkgrade
+      - for (let i=1;i<9;i++)
+        input(type="hidden", id=`khoi${i}`, name=`khoi${i}`)
     div 
       input(id='submit' type="submit", value='Tạo Giáo Viên' disabled)
   script(src='/javascripts/teacher.js')

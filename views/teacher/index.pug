@@ -20,20 +20,33 @@ block content
           td= t.name 
           td= t.subject 
           td
-            - function isChecked(t, gradeID) {
+            label(for='grade') Dạy Khối:
+            br
+            - function isChecked(t, grade) {
               - for (const key in t) {
-                -  if (t[key] === gradeID) {
-                  -  return true;
-                -  }
-              -  }
-              -  return false;
+                - if (t[key] === grade) {
+                  - return true;
+                - }
+              - }
+              - return false;
             - }
-            - let i = 1
-            each g in grades
-              br
-              label(for=`grade${i}`)
-                input(type="checkbox", name=`grade${i++}`, value=g.gradeID, disabled, checked=isChecked(t, g.gradeID) ? true : false)
-                | Lớp #{g.name}
+            input#grade1(type='checkbox',name='grade1' value='1', checked=isChecked(t, '1') ? true : false disabled) 
+            | 1
+            input#grade2(type='checkbox',name='grade2' value='2', checked=isChecked(t, '2') ? true : false disabled) 
+            | 2
+            input#grade3(type='checkbox',name='grade3' value='3', checked=isChecked(t, '3') ? true : false disabled) 
+            | 3
+            input#grade4(type='checkbox',name='grade4' value='4A', checked=isChecked(t, '4A') ? true : false disabled) 
+            | 4A
+            br
+            input#grade5(type='checkbox',name='grade5' value='4B', checked=isChecked(t, '4B') ? true : false disabled) 
+            | 4B
+            input#grade6(type='checkbox',name='grade6' value='5A', checked=isChecked(t, '5A') ? true : false disabled) 
+            | 5A
+            input#grade7(type='checkbox',name='grade7' value='5B', checked=isChecked(t, '5B') ? true : false disabled) 
+            | 5B
+            input#grade8(type='checkbox',name='grade8' value='5T', checked=isChecked(t, '5T') ? true : false disabled) 
+            | 5T
           td 
             - let checkplace ={};
             - for(let i=1;i<=10;i++){

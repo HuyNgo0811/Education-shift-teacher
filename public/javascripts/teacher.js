@@ -12,13 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   function signbuoitkb(){
-    console.log('vo dc ne')
     for(let i=1;i<14;i++){
       let buoi = 'buoi'+i;
-      let id = 'time-'+i;
+      let id = 'time-'+i; //time-1 -> time-13
       const timechecked = document.getElementById(id);
       if(timechecked.checked){
-        document.getElementById(buoi).value='free';
+        document.getElementById(buoi).value='free'; //buoi1 -> buoi13
       }
     }
     let a=0;
@@ -54,8 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function signgradetkb(){
-    let numgrade=document.getElementById('sokhoi').value;
-    for(let i=1;i<=numgrade;i++){
+    for(let i=1;i<9;i++){
       let khoi = 'khoi'+i;
       let id = 'grade'+i;
       const gradechecked = document.getElementById(id);

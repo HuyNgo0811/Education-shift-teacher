@@ -1,23 +1,37 @@
 let statusdktime = document.getElementById('statusDkTime');
-const signtime = document.getElementById('dktime');
-const subbtn = document.getElementById('submit');
-
 document.addEventListener('DOMContentLoaded', () => {
   signtimetkb();
   signgradetkb();
   signplacetkb();
   signbuoitkb();
 
+  const signtime = document.getElementById('dktime');
   signtime.addEventListener("click",() => {
     event.preventDefault();
+    // clear();
     signtimetkb();
     signgradetkb();
     signplacetkb();
     signbuoitkb();
     statusdktime.innerText='Đã set thông tin cho giáo viên';
-    subbtn.disabled=false;
+    document.getElementById('submit').disabled=false;
   });
 });
+
+// function clear() {
+//   for(let i=1;i<157;i++){
+//     document.getElementById('buoi'+i).value='';
+//   }
+//   for(let i=1;i<11;i++){
+//     document.getElementById('coso'+i).value='';
+//   }
+//   for(let i=1;i<14;i++){
+//     document.getElementById('time'+i).value='';
+//   }
+//   for(let i=1;i<9;i++){
+//     document.getElementById('khoi'+i).value='';
+//   }
+// }
 
 function signbuoitkb(){
   for(let i=1;i<14;i++){
@@ -30,7 +44,7 @@ function signbuoitkb(){
       document.getElementById(buoi).value='';
     }
   }
-  for(let i=14;i<=157;i++){
+  for(let i=14;i<157;i++){
     let buoi = 'buoi'+i;
     document.getElementById(buoi).value='';
   }
@@ -65,8 +79,7 @@ function signplacetkb(){
 }
 
 function signgradetkb(){
-  let numgrade=document.getElementById('sokhoi').value;
-  for(let i=1;i<=numgrade;i++){
+  for(let i=1;i<=8;i++){
     let khoi = 'khoi'+i;
     let id = 'grade'+i;
     const gradechecked = document.getElementById(id);

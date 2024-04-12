@@ -22,27 +22,34 @@ block content
         option(value='literature' selected=t.subject==='literature') Ngữ văn
         option(value='science' selected=t.subject==='science') Khoa học
         option(value='history' selected=t.subject==='history') Lịch sử
-    div.grade
+    div
       label(for='grade') Dạy Khối:
       br
-      - function isChecked(t, gradeID) {
+      - function isChecked(t, grade) {
         - for (const key in t) {
-          - if (t[key] === gradeID) {
+          - if (t[key] === grade) {
             - return true;
           - }
         - }
         - return false;
       - }
-      - let i = 1
-      each g in grades
-        label(for=`grade${i}`)
-          input(type="checkbox", id=`grade${i}`, name=`grade${i}`, value=g.gradeID, checked=isChecked(t, g.gradeID) ? true : false)
-          | Lớp #{g.name}
-        //- Input fields for khoi1 to khoi8
-        - let gradekey = 'grade'+i;
-        input(type="hidden", id=`khoi${i}`, name=`khoi${i}`)
-        - i++
-      input#sokhoi(type="hidden", value=`${i-1}`, name='sokhoi')
+      input#grade1(type='checkbox',name='grade1' value='1', checked=isChecked(t, '1') ? true : false) 
+      | 1
+      input#grade2(type='checkbox',name='grade2' value='2', checked=isChecked(t, '2') ? true : false) 
+      | 2
+      input#grade3(type='checkbox',name='grade3' value='3', checked=isChecked(t, '3') ? true : false) 
+      | 3
+      input#grade4(type='checkbox',name='grade4' value='4A', checked=isChecked(t, '4A') ? true : false) 
+      | 4A
+      br
+      input#grade5(type='checkbox',name='grade5' value='4B', checked=isChecked(t, '4B') ? true : false) 
+      | 4B
+      input#grade6(type='checkbox',name='grade6' value='5A', checked=isChecked(t, '5A') ? true : false) 
+      | 5A
+      input#grade7(type='checkbox',name='grade7' value='5B', checked=isChecked(t, '5B') ? true : false) 
+      | 5B
+      input#grade8(type='checkbox',name='grade8' value='5T', checked=isChecked(t, '5T') ? true : false) 
+      | 5T
     div
       label(for='place') Dạy cơ sở:
       br
@@ -55,25 +62,20 @@ block content
           - checkplace[i] = false;
         - }
       - }
-      //- - for (let i = 1; i <= 5; i++)
-      input(type="checkbox" id=`place1` name=`place1` checked=checkplace[1] value=`Bình Thạnh` onchange=`updateCheck(1)`)
+      input(type="checkbox" id=`place1` name=`place1` checked=checkplace[1] value=`Bình Thạnh`)
       | Bình Thạnh
-      input(type="checkbox" id=`place2` name=`place2` checked=checkplace[2] value=`Phổ Quang` onchange=`updateCheck(2)`)
+      input(type="checkbox" id=`place2` name=`place2` checked=checkplace[2] value=`Phổ Quang`)
       | Phổ Quang
-      input(type="checkbox" id=`place3` name=`place3` checked=checkplace[3] value=`Quận 7` onchange=`updateCheck(3)`)
+      input(type="checkbox" id=`place3` name=`place3` checked=checkplace[3] value=`Quận 7`)
       | Quận 7
-      input(type="checkbox" id=`place4` name=`place4` checked=checkplace[4] value=`Thủ Đức` onchange=`updateCheck(4)`)
+      input(type="checkbox" id=`place4` name=`place4` checked=checkplace[4] value=`Thủ Đức`)
       | Thủ Đức
-      input(type="checkbox" id=`place5` name=`place5` checked=checkplace[5] value=`place5` onchange=`updateCheck(5)`)
+      input(type="checkbox" id=`place5` name=`place5` checked=checkplace[5] value=`place5`)
       | CS 5
       br
       - for (let i = 6; i <= 10; i++)
-        input(type="checkbox" id=`place${i}` name=`place${i}` checked=checkplace[i] value=`place${i}` onchange=`updateCheck(${i})`)
+        input(type="checkbox" id=`place${i}` name=`place${i}` checked=checkplace[i] value=`place${i}`)
         | CS #{i}
-      script.
-        function updateCheck(index) {
-          checkplace[index] = !checkplace[index];
-        }
     div
       label(for='time') Thời gian:
       br
@@ -140,14 +142,17 @@ block content
       br
       input#timemax(type='number' name='max' placeholder='Max')
     div.dkbuoifree
-      - for (let i = 1; i <= 157; i++)
+      - for (let i = 1; i < 157; i++)
         input(type="hidden" id=`buoi${i}` name=`buoi${i}` value=t[`buoi${i}`])
     div.dkcosoday
       - for (let i = 1; i <= 10; i++)
-        input(type="hidden" id=`coso${i}` name=`coso${i}`)
+        input(type="hidden" id=`coso${i}` name=`coso${i}` value=t[`palce${i}`])
     div.dktimefree
       - for (let i = 1; i <= 13; i++)
-        input(type="hidden" id=`time${i}` name=`time${i}`)
+        input(type="hidden" id=`time${i}` name=`time${i}` value=t[`time${i}`])
+    div.dkgrade
+      - for (let i=1;i<9;i++)
+        input(type="hidden", id=`khoi${i}`, name=`khoi${i}` value=t[`grade${i}`])
     div
       input(id='submit' disabled type="submit", value='Cập Nhật Giáo Viên')
   script(src='/javascripts/teacher-update.js')
