@@ -12,8 +12,8 @@ var excelRouter = require('./routes/excel');
 var tkbRouter = require('./routes/tkb')
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/teachershift-new');
-// mongoose.connect('mongodb+srv://huynqfx20307:MmfnmVJZW4eb1Pdd@huyeducation.r4bgrx9.mongodb.net/teacherShift-ver-2?retryWrites=true&w=majority&appName=validate');
+// mongoose.connect('mongodb://127.0.0.1:27017/teachershift-new');
+mongoose.connect('mongodb+srv://huynqfx20307:MmfnmVJZW4eb1Pdd@huyeducation.r4bgrx9.mongodb.net/teacherShift-ver-2?retryWrites=true&w=majority&appName=validate');
 
 const Excel = require('exceljs');
 
