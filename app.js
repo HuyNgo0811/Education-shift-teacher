@@ -8,12 +8,14 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var teacherRouter = require('./routes/teacher');
 var classRouter = require('./routes/class');
-// var gradeRouter = require('./routes/grade');
+var excelRouter = require('./routes/excel');
 var tkbRouter = require('./routes/tkb')
 
 const mongoose = require('mongoose');
-// mongoose.connect('mongodb://127.0.0.1:27017/teachershift-new');
-mongoose.connect('mongodb+srv://huynqfx20307:MmfnmVJZW4eb1Pdd@huyeducation.r4bgrx9.mongodb.net/teacherShift-ver-2?retryWrites=true&w=majority&appName=validate');
+mongoose.connect('mongodb://127.0.0.1:27017/teachershift-new');
+// mongoose.connect('mongodb+srv://huynqfx20307:MmfnmVJZW4eb1Pdd@huyeducation.r4bgrx9.mongodb.net/teacherShift-ver-2?retryWrites=true&w=majority&appName=validate');
+
+const Excel = require('exceljs');
 
 var app = express();
 
@@ -33,6 +35,9 @@ app.use('/teacher', teacherRouter);
 app.use('/class', classRouter);
 // app.use('/grade', gradeRouter);
 app.use('/tkb',tkbRouter);
+// Sử dụng route export Excel
+app.use('/export', excelRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
