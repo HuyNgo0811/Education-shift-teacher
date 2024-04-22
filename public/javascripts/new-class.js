@@ -717,10 +717,7 @@ function createManualTeacher() {
 function createStringsArray(math, english, literature, science, history,mathtea,englishtea,literaturetea,sciencetea,historytea) {
   const total = math + english + literature + science + history;
   console.log('math: '+math+'|eng:'+english+'|lit:'+literature+'|sci:'+science+'|Total:'+total)
-  if (total !== 23) {
-    alert("Tổng số buổi phải bằng 23. Vui lòng nhập lại.");
-    return [];
-  }
+  
   for (let i = 0; i < math; i++) {
     strings.push(mathtea);
   }
